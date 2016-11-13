@@ -16,6 +16,31 @@ color("brown");
 
 union() {
     // Leg
+    leg_body();
+
+    // Connection
+    translate([0, 0, thickness]) {
+        leg_joint();
+    }
+}
+
+union() {
+    // Leg
+    translate([0, thickness * 5, thickness]) {
+        rotate([180, 0, 0]) {
+            leg_body();
+        }
+    }
+    
+    // Connection
+    translate([0, thickness * 5, thickness]) {
+        leg_joint();
+    }
+}
+
+
+
+module leg_body() {
     hull() {
         cylinder(thickness, r=top_radius, center = false);
         translate([leg_height, 0, 0]) {
@@ -23,14 +48,20 @@ union() {
         }
     }
     // Foot
-    translate([leg_height, 0, thickness]) {
-        rotate([0, 90, 0]) {
-            cylinder(thickness, r=foot_radius, center=false);
+    translate([leg_height + foot_radius/4, 0, 0]) {
+        difference() {
+            rotate([0, 0, 90]) {
+                hull() {
+                    cylinder(thickness, r=foot_radius, center = false);
+                    translate([foot_radius, 0, 0]) {
+                        cylinder(thickness, r=foot_radius/2, center = false);
+                    }
+                }
+            };
+            translate([0, -foot_radius, 0]) {
+                cube([foot_radius, foot_radius * 2.5 + 1, thickness + 1]);
+            }
         }
-    }
-    // Connection
-    translate([0, 0, thickness]) {
-        leg_joint();
     }
 }
 
@@ -48,7 +79,6 @@ module leg_joint() {
         union() {
             translate([-joint_end_radius, -slice_width/2, -0.5]) {
                 cube([joint_end_radius*2, slice_width, joint_depth + joint_end_depth + 1], center=false);
-
             }
             translate([0, 0, -0.5]) {
                 cylinder(joint_end_depth+joint_depth + 1, r=joint_radius*0.9, center=false);
