@@ -90,5 +90,3 @@ module leg_joint() {
         }
     }    
 }
-
-leg_joint(joint_depth, joint_radius, joint_end_radius, slice_width);
