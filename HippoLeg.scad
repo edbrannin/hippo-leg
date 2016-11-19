@@ -11,36 +11,35 @@ joint_depth = 8.4;
 joint_end_depth = 2.9;
 slice_width = 2.2;
 
+color("SaddleBrown") {
+    union() {
 
-union() {
+        // Leg
+        leg_body();
 
-    // Leg
-    leg_body();
-
-    // Connection
-    translate([0, 0, thickness]) {
-        leg_joint();
-    }
-}
-
-union() {
-    // Leg
-    translate([0, thickness * 5, thickness]) {
-        rotate([180, 0, 0]) {
-            leg_body();
+        // Connection
+        translate([0, 0, thickness]) {
+            leg_joint();
         }
     }
 
-    // Connection
-    translate([0, thickness * 5, thickness]) {
-        leg_joint();
+    union() {
+        // Leg
+        translate([0, thickness * 5, thickness]) {
+            rotate([180, 0, 0]) {
+                leg_body();
+            }
+        }
+
+        // Connection
+        translate([0, thickness * 5, thickness]) {
+            leg_joint();
+        }
     }
 }
 
 
-
 module leg_body() {
-
     difference() {
         union() {
             //Leg
