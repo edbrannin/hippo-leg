@@ -1,20 +1,19 @@
-thickness = 10;
-top_radius = 20;
+thickness = 7.5;
+top_radius = 24/2;
 leg_height = 40;
-bottom_radius=10;
-foot_radius=10;
+bottom_radius=12/6;
+foot_radius=15/2;
 left_leg = false;
 
-joint_radius = 10;
-joint_end_radius = 11;
-joint_depth = 5;
-joint_end_depth = 2;
-slice_width = 2;
-
-color("brown");
+joint_radius = 9.9/2;
+joint_end_radius = joint_radius + 0.5;
+joint_depth = 8.4;
+joint_end_depth = 2.9;
+slice_width = 2.2;
 
 
 union() {
+
     // Leg
     leg_body();
 
