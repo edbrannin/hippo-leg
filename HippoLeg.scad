@@ -85,7 +85,7 @@ module leg_joint() {
                 cube([joint_end_radius*2, slice_width, joint_depth + joint_end_depth + 1], center=false);
             }
             translate([0, 0, 1]) {
-                cylinder(joint_end_depth+joint_depth + 1, r=joint_radius*0.9, center=false);
+                cylinder(joint_end_depth+joint_depth + 1, joint_radius*0.7, joint_radius*0.9, center=false);
             }
         }
     }    
