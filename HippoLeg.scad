@@ -11,6 +11,9 @@ joint_depth = 8.4;
 joint_end_depth = 2.9;
 slice_width = 2.2;
 
+$fs = 0.5;
+$fa = 6;
+
 color("SaddleBrown") {
     union() {
 
