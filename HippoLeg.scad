@@ -17,6 +17,10 @@ $fa = 6;
 //projection()
 both_legs();
 
+// Original leg size
+%cube(size=[40, 25, thickness], center=false);
+// TODO Fit inside bounding box
+// TODO thicker leg below the joint? (10mm)
 
 module both_legs() {
     translate([top_radius, top_radius, 0])
