@@ -1,5 +1,5 @@
 thickness = 7.5;
-top_radius = 24/2;
+top_radius = 22/2;
 leg_height = 40;
 bottom_radius=12/6;
 foot_radius=15/2;
