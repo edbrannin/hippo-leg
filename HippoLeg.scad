@@ -1,8 +1,8 @@
 thickness = 7.5;
 top_radius = 22/2;
-leg_height = 40;
 bottom_radius=12/6;
 foot_radius=15/2;
+leg_height = 40 - foot_radius*2;
 left_leg = false;
 
 joint_radius = 9.9/2;
