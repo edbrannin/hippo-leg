@@ -83,7 +83,7 @@ module leg_joint() {
 
     difference() {
         union() {
-            cylinder(joint_depth, r=joint_radius, center=false);
+            cylinder(joint_depth, r=joint_radius, center=false, $fn=8);
             translate([0, 0, joint_depth]) {
                 cylinder(joint_end_depth/2, r=joint_end_radius, center=false);
             }
