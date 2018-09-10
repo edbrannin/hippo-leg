@@ -14,29 +14,36 @@ slice_width = 2.2;
 $fs = 0.5;
 $fa = 6;
 
-color("SaddleBrown") {
-    union() {
+//projection()
+both_legs();
 
-        // Leg
-        leg_body();
 
-        // Connection
-        translate([0, 0, thickness]) {
-            leg_joint();
-        }
-    }
+module both_legs() {
+    translate([top_radius, top_radius, 0])
+    color("SaddleBrown") {
+        union() {
 
-    union() {
-        // Leg
-        translate([0, thickness * 5, thickness]) {
-            rotate([180, 0, 0]) {
-                leg_body();
+            // Leg
+            leg_body();
+
+            // Connection
+            translate([0, 0, thickness]) {
+                leg_joint();
             }
         }
 
-        // Connection
-        translate([0, thickness * 5, thickness]) {
-            leg_joint();
+        union() {
+            // Leg
+            translate([0, top_radius * 3, thickness]) {
+                rotate([180, 0, 0]) {
+                    leg_body();
+                }
+            }
+
+            // Connection
+            translate([0, top_radius * 3, thickness]) {
+                leg_joint();
+            }
         }
     }
 }
